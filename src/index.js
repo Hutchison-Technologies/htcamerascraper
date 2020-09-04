@@ -94,7 +94,7 @@ async function getImageUrl(apiKey, timestamp, fileDestination, batchImages){
     await axios(config)
         .then(async (response) => {
             if(response.status === 202) {
-                // console.log("Got url for " + timestamp);
+                console.log("Got url for " + timestamp);
                 const responseBody = response.data
                 // await new Promise(resolve => setTimeout(resolve, 6000));
                 pictureUrls.push({timestamp: timestamp, url: responseBody.url})
@@ -121,7 +121,7 @@ async function getImageFromUrl(imageUrl, timestamp, fileDestination){
         if (response.statusCode === 200){
             console.log("Saving Image for " + timestamp)
             console.log(response.statusMessage)
-            const file = fs.createWriteStream(fileDestination + "/file_" + timestamp+".jpg");
+            const file = fs.createWriteStream(fileDestination + "/file_" + moment(timestamp).format("HH_mm_ss__DD_MM_YYYY")+".jpg");
             response.pipe(file);
             await new Promise(resolve => setTimeout(resolve, 1000));
         }else if(response.statusCode === 404){
