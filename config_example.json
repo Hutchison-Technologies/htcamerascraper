@@ -1,0 +1,12 @@
+{
+  "apiKey": "<API KEY HERE>",
+  "startYear": "2020",
+  "startMonth": "07",
+  "startDay": "21",
+  "endYear": "2020",
+  "endMonth": "09",
+  "endDay": "02",
+  "startHour": "07",
+  "endHour": "19",
+  "imageRetrievalInterval": 30
+}
